@@ -1,8 +1,9 @@
+<div class="row">
 <h2>ジャンル一覧・追加</h2>
 
 <div class="form-group">
   <%= form_with model: @genre, url:admins_genre_path,method: :post do |f| %>
-  
+
   <%= f.label :ジャンル名 %>
   <%= f.text_field :name %>
   <%= f.submit "新規登録" ,class: "btn btn-success" %>
@@ -13,8 +14,20 @@
 <thead>
   <tr>
     <th>ジャンル</th>
-    <th>状態</th>
+    <th></th>
   </tr>
 </thead>
 
-<tbody></tbody>
+<tbody>
+  <%= @genres.each do |genre| %>
+  <tr>
+    <td><%= genre.name %></td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit "編集" ,class: "btn btn-succes"  %>
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</div>
